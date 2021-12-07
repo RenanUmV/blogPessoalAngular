@@ -9,18 +9,17 @@
 
           <div class="form-group">
             <label for="name">Name</label>
-            <input
-              class="form-control"
-              type="text"
-              name="name"
-              id="name"
-              placeholder="Your name"
-            />
+            <input [(ngModel)]='user.nome' class="form-control" type="text" name="name" id="name" placeholder="Your name "/>
+          </div>
+
+          <div class="form-group">
+            <label for="usuario">Email</label>
+            <input [(ngModel)]='user.usuario' class="form-control" type="text" name="usuario" id="usuario" placeholder="Your e-mail "/>
           </div>
 
           <div class="form-group">
             <label for="image">url image</label>
-            <input
+            <input [(ngModel)]='user.foto'
               class="form-control"
               type="text"
               name="image"
@@ -31,7 +30,7 @@
 
           <div class="form-group">
             <label for="password">Password</label>
-            <input
+            <input (input) = 'confirmSenha($event)'
               class="form-control"
               type="password"
               name="password"
@@ -42,7 +41,7 @@
 
           <div class="form-group">
             <label for="confirm">Repeat your password</label>
-            <input
+            <input [(ngModel)]='user.senha'
               class="form-control"
               type="password"
               name="confirm"
@@ -53,7 +52,7 @@
 
           <div class="form-group">
             <label for="userType">User type</label>
-            <select class="form-control" name="userType" id="userType">
+            <select class="form-control" name="userType" id="userType" (change)='tipoUser($event)'>
               <option>Select your user type</option>
               <option value="normal">Just normal user</option>
               <option value="admin">Fu**ing administrator</option>
@@ -61,7 +60,7 @@
 
             <div class="d-flex justify-content-center">
               <button type="submit" class="btn btn-danger mr-4 mt-4" routerLink='/login'>Cancel</button>
-              <button type="submit" class="btn btn-success mt-4">Create</button>
+              <button type="submit" class="btn btn-success mt-4" (click)='cadastrar()'>Create</button>
             </div>
           </div>
         </div>
